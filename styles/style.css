@@ -1,10 +1,10 @@
 :root{
-	--testVar1: url(../images/cherrywood.jpg);
+/*	--testVar1: url(../images/cherrywood.jpg);*/
 /*	--testVar2: "Hello!";*/
 }
 
 html {
-	background: var(--testVar1); 
+	background: var(../images/cherrywood.jpg); 
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
