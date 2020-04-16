@@ -1,6 +1,6 @@
 :root{
 	--testVar1: url(../images/cherrywood.jpg);
-	--testVar2: "Hello!";
+/*	--testVar2: "Hello!";*/
 }
 
 html {
