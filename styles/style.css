@@ -60,11 +60,11 @@ body {
 
 
 }
-
+/*
 .readOut:before{
 
 	content: var(--testVar2);
-}
+}*/
 
 
 .keypad {
