@@ -157,8 +157,8 @@ readOut.textContent = "";
 else if (key == "-"){
 //calc = Number(readOut.textContent) * Number(readOut.textContent);
 symbol = key;
-  numbers1 = numbers2;// + symbol;
-readOut.textContent = numbers1 + symbol;
+  numbers1 = readOut.textContent;// + symbol;
+readOut.textContent = "";
 }//if -
 
 
