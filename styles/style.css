@@ -1,0 +1,213 @@
+:root{
+	--testVar1: url(../images/cherrywood.jpg);
+	--testVar2: "Hello!";
+}
+
+html {
+	background: var(--testVar1); 
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+body {
+	background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+	padding: 15px;
+	width: 1024px;
+	margin: 15px;
+}
+#container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: 3px solid black;
+	padding: 15px;
+	margin: 15px;
+	height: 675px;
+}
+
+#calculator{
+/*	display: grid;  	*/
+	width: 250px;
+	height: 350px;
+	background: white;
+	border: 3px solid purple;
+	padding: 15px;
+	margin: 15px;
+}
+
+
+.display{
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	align-items: center;
+	background: grey;
+	opacity: 0.75;
+	border: 2px solid green;
+	border-radius: 5px;
+	height: 40px;
+	margin: 10px 5px 0 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	overflow: hidden;
+	color: white;
+}
+
+.readOut{
+
+
+}
+
+.readOut:before{
+
+	content: var(--testVar2);
+}
+
+
+.keypad {
+	display: grid;
+	background: transparent; /*blue;*/
+	grid-gap: 15px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-areas: 
+		"CE div minus bksp"
+		"seven eight nine plus"
+		"four five six mult"
+		"one two three enter"
+		"sign zero dec enter";
+	margin-top: 25px;
+
+	padding: 15px;
+
+}
+
+.buttons{
+	background: lightgray;
+	width: 35px;
+	line-height: 35px;
+	border: 1px solid gray;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttons:active{
+	transform: scale(1.5);
+}
+
+
+
+#square0{
+	grid-area: zero;
+	background: #b3afb2;
+}
+#square1{
+	grid-area: one;
+	background: #b3afb2;
+}
+#square2{
+	grid-area: two;
+	background: #b3afb2;
+}
+#square3{
+	grid-area: three;
+	background: #b3afb2;
+}
+#square4{
+	grid-area: four;
+	background: #b3afb2;
+}
+#square5{
+	grid-area: five;
+	background: #b3afb2;
+}
+#square6{
+	grid-area: six;
+	background: #b3afb2;
+}
+#square7{
+	grid-area: seven;
+	background: #b3afb2;
+}
+#square8{
+	grid-area: eight;
+	background: #b3afb2;
+}
+#square9{
+	grid-area: nine;
+	background: #b3afb2;
+}
+#square10{
+	grid-area: div;
+}
+#square10:before{
+	content: "/";
+}
+#square11{
+	grid-area: dec;
+}
+#square11:before{
+	content: ".";
+}
+#square12{
+	grid-area: enter;
+	background: gray;
+}
+#square12:before{
+	content: "Ent";
+}
+#square13{
+	grid-area: mult;
+}
+#square13:before{
+	content: "*";
+}
+#square14{
+	grid-area: plus;
+}
+#square14:before{
+	content: "+";
+}
+#square15{
+	grid-area: minus;
+}
+#square15:before{
+	content: "-";
+}
+#square16{
+	grid-area: CE;
+	background: red;
+}
+#square16:before{
+	content: "CE";
+}
+#square17{
+	grid-area: bksp;
+}
+#square17:before{
+	content: "Bkp";
+}
+#square18{
+	grid-area: sign;
+}
+#square18:before{
+	content: "+/-";
+}
+
+
+
+
+
+/*
+
+
+*/
+
+
+
