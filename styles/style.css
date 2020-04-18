@@ -29,11 +29,11 @@ body {
 
 .display {
 	margin: 80px 0 0 31px;
-	border: none; /*3px solid green;*/
+	border: transparent; /*3px solid green;*/
 	background: transparent;
-	width: 268px;
+	width: 265px;
 	line-height: 75px;
-	padding-right: 10px;
+	padding: 0 0 0 5px;
 	text-align: end;
 	font-size: 30px;
 	opacity: 0.6;
@@ -45,7 +45,7 @@ body {
 	display: grid;
 	border: none /*3px solid purple;*/
 	background: transparent;
-	margin: 35px 0 0 25px;
+	margin: 40px 0 0 25px;
 	width: 300px;
 	height: 300px;
 	grid-template-columns: repeat(5, 60px);
@@ -81,15 +81,17 @@ body {
 }
 .button22{
 	grid-area: b;
-	margin: 15px;
-	padding: 8px;
+	margin: 10px 0 0 5px;
+	height: 18px;
+	width: 38px;
 	border-radius: 5px;
 	background: #777a7f;
 }
 .button23{
 	grid-area: c;
-	margin: 15px;
-	padding: 8px;
+	margin: 10px 0 0 5px;
+	height: 18px;
+	width: 38px;
 	border-radius: 5px;
 	background: #777a7f;
 }
@@ -175,6 +177,7 @@ body {
 }
 .button11{
 	grid-area: dot;
+
 }
 .button0{
 	grid-area: zero;
@@ -182,245 +185,6 @@ body {
 .button12{
 	grid-area: enter;
 }
-
-
-
-
-/*
-
-@media only screen and (max-width: 600px) {
-
-
-
-.calculator {
-	margin: 25px;
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: center;
-	border: 3px solid purple;
-	background: url(../../images/calc.png);
-	background-repeat: no-repeat;
-	background-size: 80%;
-	width: 45%;
-	height: 500px;
-
-
-
-}
-
-.display {
-	margin: 18.5% 26% 2.5% 5%;
-	border: none;
-	border-radius: 5px;
-	background: transparent;
-	width: 58%;
-	line-height: 75px;
-	padding-right: 10px;
-	text-align: end;
-	font-size: 40px;
-opacity: 0.6;
-	font-weight: bold;
-	overflow: hidden;
-}
-
-.keypad {
-	display: grid;
-	border: transparent; /*3px solid purple;
-	background: transparent;
-	margin: 6% 22.5% 0 5%;
-	width: 70%;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(6, 1fr);
-	grid-template-areas:
-	   "power sign sqrt b c"
-	   "mc mr mm mp divid"
-	   "mod seven eight nine mult"
-	   "bkspc four five six minus"
-	   "CE one two three plus"
-	   "pi dot zero enter plus"
-} 
-
-.buttons{
-	position: relative;
-	background: black;
-	margin: 10px 0 9px 0;
-	color: white;
-	font-size: 85%;
-	text-align: center;
-	width: 75%;
-	height: 25px;
-	font-weight: bold;
-	padding: 10px;
-	border: transparent;
-}
-
-/* Row 1 */
-.button28{
-	grid-area: power;
-	margin-left: 2px;
-
-
-}
-.button10{
-	grid-area: sign;
-	margin-left: 2px;
-}
-.button19{
-	grid-area: sqrt;
-
-}
-.button22{
-	grid-area: b;
-	margin-left: 2px;
-	width: 30px;
-	height: 1px;
-	border-radius: 5px;
-	background: #777a7f;
-}
-.button23{
-	grid-area: c;
-	margin-left: 2px;
-	width: 30px;
-	height: 1px;
-	border-radius: 5px;
-	background: #777a7f;
-}
-
-/* Row 2 */
-.button21{
-	grid-area: mc;
-	margin-top: 2px;
-	margin-left: 3px;
-}
-
-.button24{
-	grid-area: mr;
-	margin-top: 2px;
-	margin-left: 5px;
-}
-.button25{
-	grid-area: mm;
-	margin-top: 2px;
-	margin-left: 1px;
-}
-.button26{
-	grid-area: mp;
-	margin-top: 2px;
-	margin-left: -2px;
-}
-.button16{
-	grid-area: divid;
-	margin-top: 2px;
-	margin-left: -2px;
-}
-
-/* Row 3 */
-.button18{
-	grid-area: mod;
-	margin-top: 3px;
-	margin-left: 2px;
-}
-.button7{
-	grid-area: seven;
-	margin-top: 3px;
-	margin-left: 3px;
-}
-.button8{
-	grid-area: eight;
-	margin-top: 3px;
-}
-.button9{
-	grid-area: nine;
-	margin-top: 3px;
-	margin-left: -4px;
-}
-.button17{
-	grid-area: mult;
-	margin-top: 3px;
-	margin-left: -4px;
-}
-
-/* Row 4 */
-.button20{
-	grid-area: bkspc;
-	margin-top: 4px;
-	margin-left: 3px;
-}
-.button4{
-	grid-area: four;
-	margin-top: 4px;
-	margin-left: 3px;
-}
-.button5{
-	grid-area: five;
-	margin-top: 4px;
-}
-.button6{
-	grid-area: six;
-	margin-top: 4px;
-	margin-left: -5px;
-}
-.button15{
-	grid-area: minus;
-	margin-top: 4px;
-	margin-left: -5px;
-}
-
-/* Row 5 */
-.button13{
-	grid-area: CE;
-	margin-top: 5px;
-	margin-left: 3px;
-}
-.button1{
-	grid-area: one;
-	margin-top: 5px;
-	margin-left: 3px;
-}
-.button2{
-	grid-area: two;
-	margin-top: 5px;
-}
-.button3{
-	grid-area: three;
-	margin-top: 5px;
-	margin-left: -5px;
-}
-.button14{
-	grid-area: plus;
-	margin-top: 5px;
-	margin-left: -5px;
-	height: 75px;
-}
-
-/* Row 6 */
-.button27{
-	grid-area: pi;
-	margin-top: 6px;
-	margin-left: 2px;
-}
-.button11{
-	grid-area: dot;
-	margin-top: 6px;
-	margin-left: 2px;
-
-}
-.button0{
-	grid-area: zero;
-	margin-top: 6px;
-
-}
-.button12{
-	grid-area: enter;
-	margin-top: 6px;
-	margin-left: -5px;
-}
-
-
-
-}media min-width: 20em*/
-
 
 
 
