@@ -1,206 +1,225 @@
-const root = document.documentElement;
-//root.style.setProperty("--testVar1", var1);
-//root.style.setProperty('--testVar2', key);
+const body = document.querySelector("body");
 
-const container = document.querySelector("#container");
-
-
-const calculator = document.querySelector("#calculator");
-container.appendChild(calculator);
+const calculator = document.createElement("div");
+calculator.classList.add("calculator");
+body.appendChild(calculator);
 
 const display = document.createElement("div");
 display.classList.add("display");
+display.textContent = "Welcome!";
 calculator.appendChild(display);
 
-const readOut = document.createElement("p");
-readOut.classList.add("readOut");
-display.appendChild(readOut);
-
-const keypad = document.createElement("p");
+const keypad = document.createElement("div");
 keypad.classList.add("keypad");
 calculator.appendChild(keypad);
 
-let calc;
-let numbers1;
-let numbers2;
+let primeOperand = "";
 let symbol;
+let secndOperand = "";
+let memReg = "0";
+let result = "";
 
-// ========== Create buttons ============= 
+for(let i = 0; i < 29; i++){
 
-for(let j = 0; j < 19; j++) {
+  let button = document.createElement("button");
+	button.classList.add(`buttons`);
+	button.classList.add(`button${i}`);
+	keypad.appendChild(button);
 
-    let div = document.querySelector(`#square${j}`);
-    div.classList.add(`buttons`);
+// = = = = =  == = = Input 0-9 = = = = = = = = = = =
+
+if(i < 10){
+	button.textContent = i;
+	button.addEventListener("click", function(){
+
+if(symbol){
+	
+	   secndOperand += i
+	display.textContent = primeOperand + symbol + secndOperand;
+} else {
+if(result){
+primeOperand = "";
+result = ""};
+
+	     primeOperand += i;
+	     display.textContent = primeOperand;
+} 
+
+	});//addEventListener - click
+
+} else {
+switch(i){
+   case 10: button.textContent = "+/-";
+	button.addEventListener("click", function(){
+if(symbol){
+	   secndOperand = Number(secndOperand) * -1;
+	display.textContent = primeOperand + symbol + secndOperand;
+} else {
+	primeOperand = Number(display.textContent) * -1;
+	display.textContent = primeOperand;
+} 
+	});//addEventListener - click
+continue;
+
+   case 11: button.textContent = ".";
+	button.addEventListener("click", function(){
+if(symbol){
+	   secndOperand += "."
+	display.textContent = primeOperand + symbol + secndOperand;
+} else {
+	     primeOperand += ".";
+	     display.textContent = primeOperand;
+} 
+	});//addEventListener - click
+continue;
 
 
-if(j < 10){
-    div.textContent = `${j}`;
+   case 12: button.textContent = "ENT";
+	button.addEventListener("click", enter);//addEventListener - click
+continue;
+   case 13: button.textContent = "CE";
+	button.addEventListener("click", function(){
+	    display.textContent = "0";
+primeOperand = "";
+symbol = "";
+secondOperand = "";
+	});//addEventListener - click
+continue;
+   case 14: button.textContent = "+";
+	button.addEventListener("click", function(){
+if(symbol){enter();
+}	   result = "";
+	    symbol = "+";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+   case 15: button.textContent = "-";
+	button.addEventListener("click", function(){
+if(symbol){enter();
+}	   result = "";
+	    symbol = "-";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+   case 16: button.textContent = "/";
+	button.addEventListener("click", function(){
+if(symbol){enter();
+}	   result = "";
+	    symbol = "/";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+   case 17: button.textContent = "*";
+	button.addEventListener("click", function(){
+if(symbol){enter();
+}	   result = "";
+	    symbol = "*";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+   case 18: button.textContent = "%";
+	button.addEventListener("click", function(){
+if(symbol){enter();
+}	   result = "";
+	    symbol = "%";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+   case 19: button.textContent = "√";
+	button.addEventListener("click", function(){
+if(symbol){enter();}
+	   result = "";
+	    symbol = "√";
+	   enter();
+	});//addEventListener - click
+continue;
+   case 20: button.textContent = "Bkp";
+continue;
+   case 21: button.textContent = "MC";
+	button.addEventListener("click", function(){
+	display.textContent = "0"
+	memReg = display.textContent;
+	});//addEventListener - click
+continue;
+   case 24: button.textContent = "MR";
+	button.addEventListener("click", function(){
+	display.textContent = memReg;
+	});//addEventListener - click
+continue;
+   case 25: button.textContent = "M-";
+	button.addEventListener("click", function(){
+if(!result){enter();}
+	memReg = Number(memReg) - Number(result);
+	});//addEventListener - click
+continue;
+   case 26: button.textContent = "M+";
+	button.addEventListener("click", function(){
+if(!result){enter();}
+	memReg = Number(memReg) + Number(result);
+	});//addEventListener - click
+continue;
+   case 27: button.textContent = "Pi";
+	button.addEventListener("click", function(){
+if(symbol){
+	
+	   secndOperand += "3.14";
+	display.textContent = primeOperand + symbol + secndOperand;
+} else {
+if(result){
+primeOperand = "";
+result = ""};
+
+	     primeOperand += "3.14";
+	     display.textContent = primeOperand;
+} 
+
+	});//addEventListener - click
+continue;
+   case 28: button.textContent = "Pwr";
+	button.addEventListener("click", function(){
+if(symbol){enter();}
+	    symbol = "^";
+	    display.textContent = primeOperand + symbol;
+	});//addEventListener - click
+continue;
+}//switch
+
+}//if - else
+
+}//for i
+
+function enter(){
+if(result){display.textContent = result}
+else{
+	switch(symbol){
+		case "+": result = Number(primeOperand) + Number(secndOperand);
+			  display.textContent = result;
+		   break;		
+		case "-": result = Number(primeOperand) - Number(secndOperand);
+			  display.textContent = result;
+		   break;		
+		case "/": result = Number(primeOperand) / Number(secndOperand);
+			  display.textContent = result;
+		   break;
+		case "*": result = Number(primeOperand) * Number(secndOperand);
+			  display.textContent = result;
+		   break;
+		case "^": result = Math.pow(primeOperand,secndOperand);
+			  display.textContent = result;
+		   break;
+		case "%": result = Number(primeOperand) % Number(secndOperand);
+			  display.textContent = result;
+		   break;
+		case "√": result = Math.sqrt(primeOperand);
+			  display.textContent = result;
+		   break;
+		default: result = primeOperand;
+	}//switch
+			primeOperand = result;
+			secndOperand = "";
+			symbol = "";
 }
-else {div.textContent = "";
-}
-
-	div.addEventListener("click", function(){
-
-if(j >=0 || j <= 9){
-	readOut.textContent += div.textContent;
-	numbers2 = readOut.textContent;
-	readOut.style.setProperty('--testVar2', div.textContent);
-}//if 0-9
-
-
-if(j == 10){
-	symbol = "/";
-	numbers1 = readOut.textContent;// + symbol;
-	readOut.textContent = "";
-}// if j 10
-
-if(j == 11){
-	readOut.textContent += ".";
-}// if j 11
-
-
-
-if(j == 12){
-
-   if (symbol == "*") {
-	readOut.textContent = Number(numbers1) * Number(numbers2);
-   }// if *
-   else if (symbol == "/") {
-	readOut.textContent = Number(numbers1) / Number(numbers2);
-   }// if /
-   else if(symbol == "+"){
-//	calc += Number(readOut.textContent);
-	readOut.textContent = Number(numbers1) + Number(numbers2);
-//	readOut.style.setProperty('--testVar2', numbers1);
-   }//if +
-   else if (symbol == "-") {
-	readOut.textContent = Number(numbers1) - Number(numbers2);
-   }// if -
-
-}//if j 12
-
-if(j == 13){
-symbol = "*";
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}// if j 13
-
-
-if(j == 14){
-symbol = "+";
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}// if j 14
-
-if(j == 15){
-symbol = "-";
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}// if j 15
-
-
-
-if(j == 16){
-	readOut.textContent = "";
-	numbers1 = 0;
-	numbers2 = 0;
-	symbol = "";
-}//if j 16
-
-if(j == 18){
-	readOut.textContent = Number(readOut.textContent) * -1;
-}//if j 18
-
-
-});
-
-    keypad.appendChild(div);
-
-
-
-}//for j
-
-// ========================================
-// ======= Keypress function ==============
-
-document.addEventListener('keydown', event => {
-//	let code = event.keyCode || event.which;
-	let key = event.key;
-
-if(key >=0 || key < 10){
-	readOut.textContent += key;
-	numbers2 = readOut.textContent;
-	readOut.style.setProperty('--testVar2', numbers2);
-} //if key 0
-
-
-if (key == "*"){
-//numbers1 = readOut.textContext;
-symbol = key;
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-//readOut.textContent = Number(readOut.textContent) + symbol;
-} //if *
-else if (key == "/"){
-event.preventDefault();
-//calc = Number(readOut.textContent) * Number(readOut.textContent);
-symbol = key;
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}//if /
-else if (key == "+"){
-//calc = Number(readOut.textContent) * Number(readOut.textContent);
-symbol = key;
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}//if +
-else if (key == "-"){
-//calc = Number(readOut.textContent) * Number(readOut.textContent);
-symbol = key;
-  numbers1 = readOut.textContent;// + symbol;
-readOut.textContent = "";
-}//if -
-
-
-
-if (key == "Enter"){
-
-   if (symbol == "*") {
-	readOut.textContent = Number(numbers1) * Number(numbers2);
-
-   }// if *
-   else if (symbol == "/") {
-	readOut.textContent = Number(numbers1) / Number(numbers2);
-   }// if /
-   else if(symbol == "+"){
-//	calc += Number(readOut.textContent);
-	readOut.textContent = Number(numbers1) + Number(numbers2);
-//	readOut.style.setProperty('--testVar2', numbers1);
-   }//if +
-   else if (symbol == "-") {
-	readOut.textContent = Number(numbers1) - Number(numbers2);
-   }// if -
-
-//	calc += Number(readOut.textContent);
-//	readOut.style.setProperty('--testVar2', numbers1);
-
-
-
-}//if Enter
-
-if(key == "."){
-	readOut.textContent += ".";
-}// if j 11
-
-
-
-
-
-
-
-}); //keydown function
-
-// ==============================================
+}//func enter
 
 
 

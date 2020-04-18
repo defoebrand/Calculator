@@ -1,213 +1,426 @@
-:root{
-/*	--testVar1: url(../images/cherrywood.jpg);*/
-/*	--testVar2: "Hello!";*/
-}
 
 html {
-	background: var(../images/cherrywood.jpg); 
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	background: url(../images/cherrywood.jpg);
 	height: 100vh;
 }
 body {
-	background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
-	padding: 15px;
-	width: 1024px;
-	margin: 15px;
+	margin: 50px 0 0 50px;
+	border: none; /*5px solid black;*/
+	background: url(../images/calendar.jpg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	width: 50%;
 }
-#container{
+
+
+
+.calculator {
+	margin: 0 0 0 67.5%;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	border: 3px solid black;
-	padding: 15px;
-	margin: 15px;
-	height: 675px;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	border: none; /*3px solid purple;*/
+	background: url(../images/calc.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 350px;
 }
 
-#calculator{
-/*	display: grid;  	*/
-	width: 250px;
-	height: 350px;
-	background: white;
-	border: 3px solid purple;
-	padding: 15px;
-	margin: 15px;
-}
-
-
-.display{
-	display: flex;
-	flex-direction: row;
-	justify-content: end;
-	align-items: center;
-	background: grey;
-	opacity: 0.75;
-	border: 2px solid green;
-	border-radius: 5px;
-	height: 40px;
-	margin: 10px 5px 0 5px;
+.display {
+	margin: 80px 0 0 31px;
+	border: none; /*3px solid green;*/
+	background: transparent;
+	width: 268px;
+	line-height: 75px;
 	padding-right: 10px;
-	padding-left: 10px;
+	text-align: end;
+	font-size: 30px;
+	opacity: 0.6;
+	font-weight: bold;
 	overflow: hidden;
-	color: white;
 }
-
-.readOut{
-
-
-}
-/*
-.readOut:before{
-
-	content: var(--testVar2);
-}*/
-
 
 .keypad {
 	display: grid;
-	background: transparent; /*blue;*/
-	grid-gap: 15px;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-	grid-template-areas: 
-		"CE div minus bksp"
-		"seven eight nine plus"
-		"four five six mult"
-		"one two three enter"
-		"sign zero dec enter";
-	margin-top: 25px;
+	border: none /*3px solid purple;*/
+	background: transparent;
+	margin: 35px 0 0 25px;
+	width: 300px;
+	height: 300px;
+	grid-template-columns: repeat(5, 60px);
+	grid-template-rows: repeat(6, 45px);
+	grid-template-areas:
+	   "power sign sqrt b c"
+	   "mc mr mm mp divid"
+	   "mod seven eight nine mult"
+	   "bkspc four five six minus"
+	   "CE one two three plus"
+	   "pi dot zero enter plus"
 
-	padding: 15px;
-
-}
+} 
 
 .buttons{
-	background: lightgray;
-	width: 35px;
-	line-height: 35px;
-	border: 1px solid gray;
-	text-align: center;
-	font-weight: bold;
-	font-size: 15px;
-	margin-left: auto;
-	margin-right: auto;
+	border: transparent;
+	background: transparent;
+	color: transparent;
+	width: 50px;
+	height: 30px;
+
 }
 
-.buttons:active{
-	transform: scale(1.5);
+/* Row 1 */
+.button28{
+	grid-area: power;
 }
-
-
-
-#square0{
-	grid-area: zero;
-	background: #b3afb2;
-}
-#square1{
-	grid-area: one;
-	background: #b3afb2;
-}
-#square2{
-	grid-area: two;
-	background: #b3afb2;
-}
-#square3{
-	grid-area: three;
-	background: #b3afb2;
-}
-#square4{
-	grid-area: four;
-	background: #b3afb2;
-}
-#square5{
-	grid-area: five;
-	background: #b3afb2;
-}
-#square6{
-	grid-area: six;
-	background: #b3afb2;
-}
-#square7{
-	grid-area: seven;
-	background: #b3afb2;
-}
-#square8{
-	grid-area: eight;
-	background: #b3afb2;
-}
-#square9{
-	grid-area: nine;
-	background: #b3afb2;
-}
-#square10{
-	grid-area: div;
-}
-#square10:before{
-	content: "/";
-}
-#square11{
-	grid-area: dec;
-}
-#square11:before{
-	content: ".";
-}
-#square12{
-	grid-area: enter;
-	background: gray;
-}
-#square12:before{
-	content: "Ent";
-}
-#square13{
-	grid-area: mult;
-}
-#square13:before{
-	content: "*";
-}
-#square14{
-	grid-area: plus;
-}
-#square14:before{
-	content: "+";
-}
-#square15{
-	grid-area: minus;
-}
-#square15:before{
-	content: "-";
-}
-#square16{
-	grid-area: CE;
-	background: red;
-}
-#square16:before{
-	content: "CE";
-}
-#square17{
-	grid-area: bksp;
-}
-#square17:before{
-	content: "Bkp";
-}
-#square18{
+.button10{
 	grid-area: sign;
 }
-#square18:before{
-	content: "+/-";
+.button19{
+	grid-area: sqrt;
+}
+.button22{
+	grid-area: b;
+	margin: 15px;
+	padding: 8px;
+	border-radius: 5px;
+	background: #777a7f;
+}
+.button23{
+	grid-area: c;
+	margin: 15px;
+	padding: 8px;
+	border-radius: 5px;
+	background: #777a7f;
 }
 
+
+/* Row 2 */
+.button21{
+	grid-area: mc;
+}
+
+.button24{
+	grid-area: mr;
+}
+.button25{
+	grid-area: mm;
+}
+.button26{
+	grid-area: mp;
+}
+.button16{
+	grid-area: divid;
+}
+
+
+/* Row 3 */
+.button18{
+	grid-area: mod;
+}
+.button7{
+	grid-area: seven;
+}
+.button8{
+	grid-area: eight;
+}
+.button9{
+	grid-area: nine;
+}
+.button17{
+	grid-area: mult;
+}
+
+
+/* Row 4 */
+.button20{
+	grid-area: bkspc;
+}
+.button4{
+	grid-area: four;
+}
+.button5{
+	grid-area: five;
+}
+.button6{
+	grid-area: six;
+}
+.button15{
+	grid-area: minus;
+}
+
+
+/* Row 5 */
+.button13{
+	grid-area: CE;
+}
+.button1{
+	grid-area: one;
+}
+.button2{
+	grid-area: two;
+}
+.button3{
+	grid-area: three;
+}
+.button14{
+	grid-area: plus;
+	height: 75px;
+}
+
+
+/* Row 6 */
+.button27{
+	grid-area: pi;
+}
+.button11{
+	grid-area: dot;
+}
+.button0{
+	grid-area: zero;
+}
+.button12{
+	grid-area: enter;
+}
 
 
 
 
 /*
 
+@media only screen and (max-width: 600px) {
 
-*/
+
+
+.calculator {
+	margin: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	border: 3px solid purple;
+	background: url(../../images/calc.png);
+	background-repeat: no-repeat;
+	background-size: 80%;
+	width: 45%;
+	height: 500px;
+
+
+
+}
+
+.display {
+	margin: 18.5% 26% 2.5% 5%;
+	border: none;
+	border-radius: 5px;
+	background: transparent;
+	width: 58%;
+	line-height: 75px;
+	padding-right: 10px;
+	text-align: end;
+	font-size: 40px;
+opacity: 0.6;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+.keypad {
+	display: grid;
+	border: transparent; /*3px solid purple;
+	background: transparent;
+	margin: 6% 22.5% 0 5%;
+	width: 70%;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-areas:
+	   "power sign sqrt b c"
+	   "mc mr mm mp divid"
+	   "mod seven eight nine mult"
+	   "bkspc four five six minus"
+	   "CE one two three plus"
+	   "pi dot zero enter plus"
+} 
+
+.buttons{
+	position: relative;
+	background: black;
+	margin: 10px 0 9px 0;
+	color: white;
+	font-size: 85%;
+	text-align: center;
+	width: 75%;
+	height: 25px;
+	font-weight: bold;
+	padding: 10px;
+	border: transparent;
+}
+
+/* Row 1 */
+.button28{
+	grid-area: power;
+	margin-left: 2px;
+
+
+}
+.button10{
+	grid-area: sign;
+	margin-left: 2px;
+}
+.button19{
+	grid-area: sqrt;
+
+}
+.button22{
+	grid-area: b;
+	margin-left: 2px;
+	width: 30px;
+	height: 1px;
+	border-radius: 5px;
+	background: #777a7f;
+}
+.button23{
+	grid-area: c;
+	margin-left: 2px;
+	width: 30px;
+	height: 1px;
+	border-radius: 5px;
+	background: #777a7f;
+}
+
+/* Row 2 */
+.button21{
+	grid-area: mc;
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.button24{
+	grid-area: mr;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+.button25{
+	grid-area: mm;
+	margin-top: 2px;
+	margin-left: 1px;
+}
+.button26{
+	grid-area: mp;
+	margin-top: 2px;
+	margin-left: -2px;
+}
+.button16{
+	grid-area: divid;
+	margin-top: 2px;
+	margin-left: -2px;
+}
+
+/* Row 3 */
+.button18{
+	grid-area: mod;
+	margin-top: 3px;
+	margin-left: 2px;
+}
+.button7{
+	grid-area: seven;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+.button8{
+	grid-area: eight;
+	margin-top: 3px;
+}
+.button9{
+	grid-area: nine;
+	margin-top: 3px;
+	margin-left: -4px;
+}
+.button17{
+	grid-area: mult;
+	margin-top: 3px;
+	margin-left: -4px;
+}
+
+/* Row 4 */
+.button20{
+	grid-area: bkspc;
+	margin-top: 4px;
+	margin-left: 3px;
+}
+.button4{
+	grid-area: four;
+	margin-top: 4px;
+	margin-left: 3px;
+}
+.button5{
+	grid-area: five;
+	margin-top: 4px;
+}
+.button6{
+	grid-area: six;
+	margin-top: 4px;
+	margin-left: -5px;
+}
+.button15{
+	grid-area: minus;
+	margin-top: 4px;
+	margin-left: -5px;
+}
+
+/* Row 5 */
+.button13{
+	grid-area: CE;
+	margin-top: 5px;
+	margin-left: 3px;
+}
+.button1{
+	grid-area: one;
+	margin-top: 5px;
+	margin-left: 3px;
+}
+.button2{
+	grid-area: two;
+	margin-top: 5px;
+}
+.button3{
+	grid-area: three;
+	margin-top: 5px;
+	margin-left: -5px;
+}
+.button14{
+	grid-area: plus;
+	margin-top: 5px;
+	margin-left: -5px;
+	height: 75px;
+}
+
+/* Row 6 */
+.button27{
+	grid-area: pi;
+	margin-top: 6px;
+	margin-left: 2px;
+}
+.button11{
+	grid-area: dot;
+	margin-top: 6px;
+	margin-left: 2px;
+
+}
+.button0{
+	grid-area: zero;
+	margin-top: 6px;
+
+}
+.button12{
+	grid-area: enter;
+	margin-top: 6px;
+	margin-left: -5px;
+}
+
+
+
+}media min-width: 20em*/
+
 
 
 
