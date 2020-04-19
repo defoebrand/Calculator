@@ -81,19 +81,9 @@ body {
 }
 .button22{
 	grid-area: b;
-	margin: 10px 0 0 5px;
-	height: 18px;
-	width: 38px;
-	border-radius: 5px;
-	background: #777a7f;
 }
 .button23{
 	grid-area: c;
-	margin: 10px 0 0 5px;
-	height: 18px;
-	width: 38px;
-	border-radius: 5px;
-	background: #777a7f;
 }
 
 

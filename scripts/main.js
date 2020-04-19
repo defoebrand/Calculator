@@ -21,7 +21,7 @@ let secndOperand = "";
 let memReg = "0";
 let symbol;
 let result = "";
-let test;
+let test = "";
 
 // = = = = =  == = = Loop to create buttons = = = = = = = = = = =
 
@@ -37,14 +37,14 @@ let test;
 				button.textContent = i;
 				button.addEventListener("click", function(){
 			if(symbol){
-				if(secndOperand.length < 5){
+				if(secndOperand.length < 6){
 				secndOperand += i
-				display.textContent = primeOperand + symbol + secndOperand;}
+				display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + Number(secndOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});}
 			} else {
 				if(result){primeOperand = ""; result = "";}
-				if(primeOperand.length < 7){
+				if(primeOperand.length < 6){
 				primeOperand += i;
-				display.textContent = primeOperand;}
+				display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});}
 			}//if symbol 
 				});//addEventListener - click
 
@@ -57,9 +57,9 @@ let test;
 					 button.addEventListener("click", function(){
 						if(symbol){
 							secndOperand = Number(secndOperand) * -1;
-							display.textContent = primeOperand + symbol + secndOperand;
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + Number(secndOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 						} else {
-							primeOperand = Number(display.textContent) * -1;
+							primeOperand = primeOperand * -1;
 							display.textContent = primeOperand;
 						} //if symbol
 								});//addEventListener - click
@@ -72,13 +72,15 @@ let test;
 							if(secndOperand.includes(".")){}
 							else{
 								secndOperand += "."
-								display.textContent = primeOperand + symbol + secndOperand;
+								
+								display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + secndOperand;
 								}//if secnd
 						} else {
 							if(primeOperand.includes(".")){}
 							else{
 								primeOperand += ".";
 								display.textContent = primeOperand;
+
 								}//if prime
 						}//if symbol 
 
@@ -95,9 +97,9 @@ let test;
 					 button.addEventListener("click", function(){
 						display.textContent = "0";
 						primeOperand = "";
-						secondOperand = "";
+						secndOperand = "";
 						symbol = "";
-result = "";
+						result = "";
 							});//addEventListener - click
 				continue;
 
@@ -106,7 +108,7 @@ result = "";
 					if(symbol){enter();}
 						result = "";
 						symbol = "+";
-						display.textContent = primeOperand + symbol;
+						display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 							});//addEventListener - click
 				continue;
 
@@ -115,7 +117,7 @@ result = "";
 					if(symbol){enter();}
 						result = "";
 						symbol = "-";
-						display.textContent = primeOperand + symbol;
+						display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 							});//addEventListener - click
 				continue;
 
@@ -124,7 +126,7 @@ result = "";
 					if(symbol){enter();}
 						result = "";
 						symbol = "/";
-						display.textContent = primeOperand + symbol;
+						display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 							});//addEventListener - click
 				continue;
 
@@ -133,7 +135,7 @@ result = "";
 					if(symbol){enter();}
 						result = "";
 						symbol = "*";
-						display.textContent = primeOperand + symbol;
+						display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 							});//addEventListener - click
 				continue;
 
@@ -142,7 +144,7 @@ result = "";
 					if(symbol){enter();}
 						result = "";
 						symbol = "%";
-						display.textContent = primeOperand + symbol;
+						display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 							});//addEventListener - click
 				continue;
 
@@ -156,6 +158,15 @@ result = "";
 				continue;
 
 				case 20: button.textContent = "Bkp";
+					 button.addEventListener("click", function(){
+						if(symbol){
+							secndOperand = secndOperand.substring(0, secndOperand.length - 1);
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + Number(secndOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
+						} else {
+							primeOperand = primeOperand.substring(0, primeOperand.length - 1);;
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
+						} //if symbol
+								});//addEventListener - click
 				continue;
 
 				case 21: button.textContent = "MC";
@@ -165,15 +176,28 @@ result = "";
 							});//addEventListener - click
 				continue;
 
-				case 22: button.textContent = "b";
+				case 22: button.textContent = "1/x";
+					 button.addEventListener("click", function(){
+						if(symbol){
+							secndOperand = 1 / secndOperand;
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + Number(secndOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
+						} else {
+							primeOperand = 1 / primeOperand;
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
+						} //if symbol
+								});//addEventListener - click
 				continue;
 
-				case 23: button.textContent = "c";
+				case 23: button.textContent = "conv";
+					 button.addEventListener("click", function(){
+						alert("Conversion feature to be added");
+						symbol = "&";
+							});//addEventListener - click
 				continue;
 
 				case 24: button.textContent = "MR";
 					 button.addEventListener("click", function(){
-						display.textContent = memReg;
+						display.textContent = memReg.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 							});//addEventListener - click
 				continue;
 
@@ -194,11 +218,11 @@ result = "";
 				case 27: button.textContent = "Pi";
 					 button.addEventListener("click", function(){
 					if(symbol){
-							secndOperand = Math.PI.toFixed(4);
-							display.textContent = primeOperand + symbol + secndOperand;
+							secndOperand = Math.PI.toLocaleString('en', {maximumFractionDigits:4, useGrouping:false})
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol + Number(secndOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 						} else {
-							primeOperand = Math.PI.toFixed(4);
-							display.textContent = primeOperand;
+							primeOperand = Math.PI.toLocaleString('en', {maximumFractionDigits:4, useGrouping:false})
+							display.textContent = Number(primeOperand).toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 						} //if symbol
 									});//addEventListener - click
 				continue;
@@ -207,7 +231,7 @@ result = "";
 					 button.addEventListener("click", function(){
 						if(symbol){enter();}
 							symbol = "^";
-							display.textContent = primeOperand + symbol;
+							display.textContent = primeOperand.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false}) + symbol;
 								});//addEventListener - click
 				continue;
 
@@ -220,40 +244,40 @@ result = "";
 
 
 	function enter(){
-		if(result){display.textContent = result.toFixed(3);
+		if(result){display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 		} else {
 			switch(symbol){
 
 				case "+": result = Number(primeOperand) + Number(secndOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false})
 				break;
 
 				case "-": result = Number(primeOperand) - Number(secndOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 				break;
 
 				case "/": result = Number(primeOperand) / Number(secndOperand);
 					if(result == Infinity){alert("BOOM!");location.reload();}
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false})
 				break;
 
 				case "*": result = Number(primeOperand) * Number(secndOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 				break;
 
 				case "^": result = Math.pow(primeOperand,secndOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 				break;
 
 				case "%": result = Number(primeOperand) % Number(secndOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 				break;
 
 				case "√": result = Math.sqrt(primeOperand);
-					  display.textContent = result.toFixed(3);
+					  display.textContent = result.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 				break;
 
-			default: result = primeOperand.toFixed(3);
+			default: result = primeOperand.toLocaleString('en', {maximumFractionDigits:3, useGrouping:false});
 
 			}//switch symbol
 
