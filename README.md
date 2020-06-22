@@ -2,7 +2,7 @@
 
 Microverse Pre-course work Calculator
 
-![screenshot]()
+![screenshot](images/screenshot.png)
 
 Additional description about the project and its features.
 
@@ -16,7 +16,7 @@ This project was the final project compiled by Brandon during the Microverse Pre
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://rawcdn.githack.com/defoebrand/Calculator/b9dd0fb298c06668ea4b8247994f824f331c45b5/index.html)
 
 
 ## Getting Started
@@ -29,6 +29,7 @@ To get your own copy of our project clone the repository to your local machine.
 👤 **Brandon Defoe**
 
 - Github: [@defoebrand](https://github.com/defoebrand)
+- Gmail: [defoebrand](defoe.brand@gmail.com)
 
 ## 🤝 Contributing
 
@@ -40,9 +41,10 @@ Feel free to check the [issues page](issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
--
+## Future features
+(may include but are not limited to)
+- measurement convertor
+- interactive calendar
 
 ## 📝 License
 
